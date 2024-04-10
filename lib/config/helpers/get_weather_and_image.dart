@@ -1,5 +1,7 @@
 String getImage(String weather) {
   switch (weather) {
+    case 'scattered clouds':
+      return 'assets/images/cloud-with-sunny.png';
     case 'Clouds':
       return 'assets/images/cloud.png';
     case 'Rain':
@@ -12,7 +14,11 @@ String getImage(String weather) {
 
 String mapWeatherCondition(String condition) {
   switch (condition) {
+    case 'few clouds':
+    case 'broken clouds':
+      return 'Despejado';
     case 'Clear':
+    case 'clear sky':
       return 'Cielo Despejado';
     case 'Clouds':
       return 'Nublado';
@@ -32,6 +38,8 @@ String mapWeatherCondition(String condition) {
       return 'Llovizna';
     case 'Fog':
       return 'Niebla';
+    case 'scattered clouds':
+      return 'Nubes dispersas';
     default:
       return 'Desconocido';
   }

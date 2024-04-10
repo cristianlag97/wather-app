@@ -17,4 +17,9 @@ class WeatherRepositoryImpl implements WeatherRepository {
   Future<WeatherEntity> getWeatherInitial(String latitude, String longitude) {
     return weatherDatasource.getWeatherInitial(latitude, longitude);
   }
+
+  @override
+  Future<WeatherDailyEntity> getweatherDaily(String cityName) {
+    return weatherDatasource.getweatherDaily(cityName);
+  }
 }

@@ -10,7 +10,7 @@ final weatherRepositoryProvider = Provider(
 );
 
 final weatherProvider =
-    StateNotifierProvider.autoDispose<WeatherNotifier, WeatherState>((ref) {
+    StateNotifierProvider<WeatherNotifier, WeatherState>((ref) {
   final position = ref.watch(locationProvider);
   final weatherRepository = ref.watch(weatherRepositoryProvider);
   return WeatherNotifier(weatherRepository, position);

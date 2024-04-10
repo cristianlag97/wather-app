@@ -9,6 +9,7 @@ class Main {
   final int humidity;
   final int pressure;
   final int seaLevel;
+  final double tempKf;
 
   Main({
     required this.feelsLike,
@@ -19,6 +20,7 @@ class Main {
     required this.temp,
     required this.tempMax,
     required this.tempMin,
+    required this.tempKf,
   });
 
   Main.fromJson(Map<String, dynamic> json)
@@ -29,6 +31,7 @@ class Main {
         seaLevel = json["sea_level"] ?? 0,
         tempMax = json["temp_max"]?.toDouble() ?? 0,
         tempMin = json["temp_min"]?.toDouble() ?? 0,
+        tempKf = json["temp_kf"]?.toDouble() ?? 0,
         temp = json["temp"]?.toDouble() ?? 0;
 
   Map<String, dynamic> toJson() => {
@@ -40,5 +43,6 @@ class Main {
         "humidity": humidity,
         "sea_level": seaLevel,
         "grnd_level": grndLevel,
+        "temp_kf": tempKf,
       };
 }

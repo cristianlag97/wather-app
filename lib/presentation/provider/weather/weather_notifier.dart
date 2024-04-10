@@ -9,24 +9,26 @@ class WeatherNotifier extends StateNotifier<WeatherState> {
   WeatherNotifier(this.weatherRepository, this.position)
       : super(const WeatherState()) {
     getWeatherinitialize();
+    getTimeOfDay();
   }
 
   final WeatherRepository weatherRepository;
   final LocationState position;
 
   Future<void> getWeatherinitialize() async {
-    _getTimeOfDay();
     try {
       state = state.copyWith(isLoading: true);
       final resp = await weatherRepository.getWeatherInitial(
         position.latitude.toString(),
         position.longitude.toString(),
       );
-      state = state.copyWith(
-        weatherEntity: resp,
-        isLoading: false,
-        dateTime: DateTime.now(),
-      );
+      if (mounted) {
+        state = state.copyWith(
+          weatherEntity: resp,
+          isLoading: false,
+          dateTime: DateTime.now(),
+        );
+      }
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -42,7 +44,7 @@ class WeatherNotifier extends StateNotifier<WeatherState> {
     }
   }
 
-  _getTimeOfDay() {
+  Future<void> getTimeOfDay() async {
     DateTime now = DateTime.now();
     int hour = now.hour;
     int minute = now.minute;

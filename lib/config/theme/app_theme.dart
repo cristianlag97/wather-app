@@ -8,27 +8,27 @@ class AppTheme {
 
         //Text
         textTheme: TextTheme(
-          titleLarge: GoogleFonts.montserratAlternates(
+          titleLarge: GoogleFonts.mulish(
             fontSize: 32,
             fontWeight: FontWeight.w800,
           ),
-          titleMedium: GoogleFonts.montserratAlternates(
+          titleMedium: GoogleFonts.mulish(
             fontSize: 24,
             fontWeight: FontWeight.w800,
           ),
-          titleSmall: GoogleFonts.montserratAlternates(
+          titleSmall: GoogleFonts.mulish(
             fontSize: 20,
             fontWeight: FontWeight.w800,
           ),
-          bodyLarge: GoogleFonts.montserratAlternates(
+          bodyLarge: GoogleFonts.mulish(
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
-          bodyMedium: GoogleFonts.montserratAlternates(
+          bodyMedium: GoogleFonts.mulish(
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),
-          bodySmall: GoogleFonts.montserratAlternates(
+          bodySmall: GoogleFonts.mulish(
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),

@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:time_and_weather_app/domain/domain.dart';
 
 enum DayNightState {
@@ -8,7 +7,7 @@ enum DayNightState {
   sunrise,
 }
 
-class WeatherState extends Equatable {
+class WeatherState {
   final bool isLoading;
   final String messageError;
   final WeatherEntity? weatherEntity;
@@ -38,18 +37,20 @@ class WeatherState extends Equatable {
         dayState: dayState ?? this.dayState,
       );
 
-  double get actualTemperature => (weatherEntity!.main.temp - 273.15);
+  double get actualTemperature => (weatherEntity!.main.temp);
+  double get actualTemperatureMax => (weatherEntity!.main.tempMax);
+  double get actualTemperatureMin => (weatherEntity!.main.tempMin);
+  double get actualFeelsLike => (weatherEntity!.main.feelsLike);
 
   String get visibilityKm =>
       '${(weatherEntity!.visibility / 1000).toStringAsFixed(0)}Km';
 
   @override
-  List<Object?> get props => [
-        isLoading,
-        messageError,
-        dateTime,
-        weatherEntity ?? {},
-        dateTime ?? {},
-        dayState,
-      ];
+  String toString() => '''
+isLoading: $isLoading,
+messageError: $messageError,
+weatherEntity: $weatherEntity,
+dateTime: $dateTime,
+dayState: $dayState,
+''';
 }
